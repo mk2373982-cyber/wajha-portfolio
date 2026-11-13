@@ -1,0 +1,15 @@
+# Old copies, private tool metadata and generated files.
+**/.git/**
+**/node_modules/**
+**/.vercel/**
+**/.netlify/**
+**/.wrangler/**
+**/.publish/**
+**/backups/**
+**/archive/**
+**/assets/**
+**/build/**
+**/campaigns/**
+**/package-lock.json
+**/pnpm-lock.yaml
+**/yarn.lock

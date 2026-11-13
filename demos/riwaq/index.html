@@ -1,0 +1,186 @@
+<!doctype html>
+<!-- هيكل الصفحة. ملفات CSS تضبط المظهر وملفات JavaScript تضيف التفاعل. -->
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#641e2b" />
+    <meta
+      name="description"
+      content="نموذج موقع مطعم افتراضي بقائمة طعام تفاعلية وتجربة تكوين طلب محلي."
+    />
+    <title>رِواق — على مهل، وعلى ذوقك</title>
+    <link rel="stylesheet" href="./base.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="demo-bar">
+      نموذج لمطعم افتراضي. الأصناف والأسعار توضيحية، ولا يتم إرسال طلبات أو دفع أموال.<a
+        href="https://wajha-mk2373982.pages.dev/#contact"
+        >اطلب موقعًا لمطعمك ↗</a
+      >
+    </div>
+    <header class="site-header wrap">
+      <a class="brand r-brand" href="./index.html"
+        ><span>رِواق<small>مذاق على مهل</small></span
+        ><i aria-hidden="true">✳</i></a
+      >
+      <nav class="nav-links" id="nav" aria-label="القائمة الرئيسية">
+        <a href="#menu">قائمة الطعام</a><a href="#story">الفكرة</a
+        ><a href="#questions">قبل الطلب</a>
+      </nav>
+      <button class="btn header-cta cart-toggle" type="button">
+        طلبك التجريبي <span class="cart-count">٠</span></button
+      ><button
+        class="menu-button"
+        aria-label="افتح القائمة"
+        aria-expanded="false"
+        aria-controls="nav"
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+    <!-- المحتوى الرئيسي للصفحة. -->
+    <main>
+      <section class="r-hero">
+        <img
+          src="./assets/hero.jpg"
+          alt="صورة مولّدة لطبق دجاج مشوي وأرز وخضار ومقبلات على طاولة خشبية"
+          width="1536"
+          height="1024"
+        />
+        <div class="r-hero-shade"></div>
+        <div class="wrap r-hero-content">
+          <p>أكل له روح. ولمّة ليها طعم.</p>
+          <h1>على مهل،<br />وعلى ذوقك.</h1>
+          <p class="hero-description">
+            تصوّر لمطعم يجمع دفء اللمة وأطباق مستوحاة من المطبخ الشرقي والمتوسطي. اختار من القائمة
+            وجرّب تكوين طلبك.
+          </p>
+          <a href="#menu" class="btn">شوف القائمة <span aria-hidden="true">↙</span></a>
+        </div>
+        <div class="r-hero-foot wrap">
+          <span>مطبخ شرقي ومتوسطي</span><span>صورة مولّدة · نموذج افتراضي</span>
+        </div>
+      </section>
+      <div class="r-strip">
+        <div class="wrap">
+          <span>طعم مألوف</span><i aria-hidden="true">✳</i><span>تقديم مختلف</span
+          ><i aria-hidden="true">✳</i><span>على ذوقك</span>
+        </div>
+      </div>
+      <section class="wrap section r-menu" id="menu">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">اختار اللي على بالك</p>
+            <h2>القائمة.</h2>
+          </div>
+          <p>أسعار وأصناف للتجربة فقط. تقدر تضيف اختياراتك وتشوف الملخص، من غير طلب حقيقي.</p>
+        </div>
+        <div class="menu-tools">
+          <div class="tabs" role="group" aria-label="تصنيف الأطباق">
+            <button type="button" data-category="all" class="active" aria-pressed="true">
+              كل القائمة</button
+            ><button type="button" data-category="main" aria-pressed="false">أطباق رئيسية</button
+            ><button type="button" data-category="starter" aria-pressed="false">مقبلات</button
+            ><button type="button" data-category="drink" aria-pressed="false">مشروبات</button>
+          </div>
+          <label class="menu-search"
+            ><span>ابحث عن صنف</span
+            ><input type="search" id="menuSearch" placeholder="اكتب اسم الصنف"
+          /></label>
+        </div>
+        <div id="menuItems" class="menu-grid"></div>
+        <p id="menuStatus" class="section-note" role="status" aria-live="polite"></p>
+        <div class="menu-disclaimer">
+          الأسعار بالجنيه المصري لغرض العرض فقط. لا توجد خدمة توصيل أو مطعم فعلي وراء هذا النموذج.
+        </div>
+      </section>
+      <section class="r-story" id="story">
+        <div class="wrap story-layout">
+          <div class="story-art" aria-hidden="true">
+            <div class="dish-ring"><span>رِواق</span><small>قعدة حلوة، وطعم قريب.</small></div>
+          </div>
+          <div>
+            <p class="eyebrow">فكرة المكان</p>
+            <h2>الطعم في التفاصيل.<br />والحكاية في اللمة.</h2>
+            <p>
+              هنا بنعرض هوية مطعم افتراضي: قائمة سهلة، وصف واضح للأطباق، وتجربة اختيار تخليك تعرف
+              طلبك قبل ما تبدأ.
+            </p>
+            <p class="subtle">
+              المحتوى والصورة والأطباق للعرض التصميمي، بدون ادعاء تشغيل مطعم أو وجود زبائن سابقين.
+            </p>
+            <a class="r-text-link" href="#menu">ارجع للقائمة ↗</a>
+          </div>
+        </div>
+      </section>
+      <section class="wrap section r-questions faq" id="questions">
+        <div>
+          <p class="eyebrow">تفاصيل واضحة</p>
+          <h2>قبل ما تختار.</h2>
+        </div>
+        <div>
+          <details>
+            <summary>هل أقدر أطلب أكل من هنا؟</summary>
+            <p>لا، رِواق نموذج افتراضي. تقدر تكوّن ملخص طلب للتجربة، من غير إرسال أو دفع.</p>
+          </details>
+          <details>
+            <summary>هل الأسعار أو معلومات المكونات فعلية؟</summary>
+            <p>
+              الأصناف والأسعار بيانات توضيحية. هذا النموذج ليس مصدرًا لمعلومات الحساسية أو ملاءمة
+              الطعام الصحية.
+            </p>
+          </details>
+          <details>
+            <summary>إيه اللي يظهر في نموذج مطعمي الحقيقي؟</summary>
+            <p>
+              نستخدم هويتك وصور أطباقك وقائمتك والأسعار المعتمدة ووسيلة التواصل، ونحدد نظام الطلب في
+              نطاق المشروع.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="r-cta">
+        <div class="wrap">
+          <div>
+            <p>خلي قائمة مطعمك في إيد عميلك.</p>
+            <h2>طعمك يستحق<br />موقعًا على ذوقه.</h2>
+          </div>
+          <a class="btn outline" href="https://wajha-mk2373982.pages.dev/#contact"
+            >اطلب موقعًا مشابهًا <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <div>
+          <h3>رِواق</h3>
+          <p>نموذج افتراضي لمطعم، وصورة مولّدة.</p>
+        </div>
+        <a href="https://wajha-mk2373982.pages.dev/">تصميم وتطوير — واجهة ↗</a>
+      </div>
+    </footer>
+    <button type="button" class="floating-cart cart-toggle" aria-label="اعرض الطلب التجريبي">
+      <span>طلبك التجريبي</span><span class="cart-count">٠</span><b id="cartTotal">٠ ج.م</b>
+    </button>
+    <div id="toast" class="r-toast" role="status" aria-live="polite" hidden></div>
+    <dialog id="cartDialog">
+      <div class="dialog-head">
+        <h2>اختياراتك.</h2>
+        <button class="dialog-close" data-close aria-label="إغلاق الطلب" type="button">×</button>
+      </div>
+      <p class="subtle">ملخص محلي للتجربة، لا يُرسل إلى مطعم.</p>
+      <div id="cartItems"></div>
+      <div class="cart-summary"><span>إجمالي توضيحي</span><strong id="dialogTotal"></strong></div>
+      <button id="copyOrder" class="btn form-full" type="button">
+        انسخ ملخص الطلب <span aria-hidden="true">↗</span>
+      </button>
+      <p id="copyResult" class="form-note" role="status" aria-live="polite"></p>
+    </dialog>
+    <script src="./common.js" defer></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

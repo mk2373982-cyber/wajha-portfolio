@@ -1,0 +1,223 @@
+<!doctype html>
+<!-- هيكل الصفحة. ملفات CSS تضبط المظهر وملفات JavaScript تضيف التفاعل. -->
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#172d3b" />
+    <meta
+      name="description"
+      content="نموذج موقع عقارات افتراضي، بتصفية للوحدات وتفاصيل وأسعار توضيحية."
+    />
+    <title>عنوان — مساحة لبداية جديدة</title>
+    <link rel="stylesheet" href="./base.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="demo-bar">
+      نموذج مكتب عقارات افتراضي. الوحدات والأسعار والصور توضيحية، ولا توجد عروض بيع أو تأجير
+      فعلية.<a href="https://wajha-mk2373982.pages.dev/#contact">اطلب موقعًا لنشاطك ↗</a>
+    </div>
+    <header class="site-header wrap">
+      <a class="brand e-brand" href="./index.html"
+        ><svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M5 20 20 6l15 14v15H5V20Z" stroke="currentColor" stroke-width="2" />
+          <path d="M15 35V22h10v13M20 5v10" stroke="currentColor" stroke-width="2" /></svg
+        ><span>عنوان<small>نموذج مكتب عقارات</small></span></a
+      >
+      <nav class="nav-links" id="nav" aria-label="القائمة الرئيسية">
+        <a href="#properties">الوحدات</a><a href="#steps">خطوات الاختيار</a
+        ><a href="#faq">أسئلة شائعة</a>
+      </nav>
+      <a class="btn header-cta" href="#properties"
+        >استكشف الاختيارات <span aria-hidden="true">↗</span></a
+      ><button
+        class="menu-button"
+        type="button"
+        aria-label="افتح القائمة"
+        aria-controls="nav"
+        aria-expanded="false"
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+    <!-- المحتوى الرئيسي للصفحة. -->
+    <main>
+      <section class="e-hero">
+        <img
+          src="./assets/hero.jpg"
+          width="1536"
+          height="1024"
+          alt="تصوّر مولّد لفيلا حديثة بواجهة حجرية وحديقة ومسبح"
+        />
+        <div class="e-hero-shade"></div>
+        <div class="wrap e-hero-content">
+          <p>مكان يناسب اللي جاي.</p>
+          <h1>مساحة جديدة.<br />بداية مختلفة.</h1>
+          <p class="hero-description">
+            شوف شكل تجربة بحث أوضح: اختار المنطقة ونوع الوحدة، وقارن التفاصيل اللي تهمك قبل الخطوة
+            الجاية.
+          </p>
+        </div>
+        <div class="e-hero-caption wrap">تصوّر معماري مولّد · لا يمثل وحدة معروضة فعليًا</div>
+      </section>
+      <section class="wrap e-filter-wrap" aria-label="البحث عن وحدة">
+        <form id="searchForm" class="e-search">
+          <label
+            >الغرض<select name="purpose">
+              <option value="all">بيع وإيجار</option>
+              <option value="sale">للبيع</option>
+              <option value="rent">للإيجار</option>
+            </select></label
+          ><label
+            >المنطقة<select name="city">
+              <option value="all">كل المناطق</option>
+              <option value="cairo">القاهرة الجديدة</option>
+              <option value="zayed">الشيخ زايد</option>
+              <option value="maadi">المعادي</option>
+            </select></label
+          ><label
+            >نوع الوحدة<select name="type">
+              <option value="all">كل الأنواع</option>
+              <option value="villa">فيلا</option>
+              <option value="apartment">شقة</option>
+              <option value="duplex">دوبلكس</option>
+            </select></label
+          ><button class="btn" type="submit">اعرض النتائج <span aria-hidden="true">⌕</span></button>
+        </form>
+      </section>
+      <section class="wrap section e-properties" id="properties">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">اختيارات توضيحية</p>
+            <h2>مساحة لكل احتمال.</h2>
+          </div>
+          <label class="sort-label"
+            >ترتيب النتائج<select id="sort">
+              <option value="default">الترتيب الافتراضي</option>
+              <option value="priceAsc">السعر الأقل أولًا</option>
+              <option value="priceDesc">السعر الأعلى أولًا</option>
+              <option value="areaDesc">المساحة الأكبر أولًا</option>
+            </select></label
+          >
+        </div>
+        <div class="results-heading">
+          <p id="resultsCount" role="status" aria-live="polite"></p>
+          <button id="resetFilters" type="button">امسح الفلاتر</button>
+        </div>
+        <div id="propertyGrid" class="property-grid"></div>
+        <p id="emptyResults" class="empty-results" hidden>
+          مفيش وحدات مطابقة للاختيارات دي. غيّر الفلاتر أو اعرض كل الوحدات التوضيحية.
+        </p>
+        <p class="section-note">
+          الأسماء والأسعار والمساحات بيانات تجريبية، والصور مولّدة. لا يوجد ضمان توافر أو عرض عقاري
+          فعلي.
+        </p>
+      </section>
+      <section class="e-steps" id="steps">
+        <div class="wrap section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">اختيار أوضح من البداية</p>
+              <h2>التفاصيل قبل القرار.</h2>
+            </div>
+            <p>
+              نموذج لتجربة تساعد الزائر يرتّب احتياجه ويستكشف المعلومات، دون وعود استثمارية أو
+              تقييمات عقارية.
+            </p>
+          </div>
+          <ol>
+            <li>
+              <span>01</span>
+              <h3>حدّد أولوياتك</h3>
+              <p>الغرض والمنطقة ونوع المساحة اللي بتدور عليها.</p>
+            </li>
+            <li>
+              <span>02</span>
+              <h3>قارن المعلومات</h3>
+              <p>شوف مساحة الوحدة وتقسيمها والسعر التوضيحي.</p>
+            </li>
+            <li>
+              <span>03</span>
+              <h3>جهّز اهتمامك</h3>
+              <p>اعرض ملخصًا تجريبيًا للوحدة والموعد المفضل للمعاينة.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section class="wrap section e-faq faq" id="faq">
+        <div>
+          <p class="eyebrow">إجابات مباشرة</p>
+          <h2>قبل ما تختار.</h2>
+        </div>
+        <div>
+          <details>
+            <summary>هل الوحدات والأسعار دي حقيقية؟</summary>
+            <p>لا. جميع الوحدات وأسعارها بيانات عرض تجريبية، والصور مولّدة بالذكاء الاصطناعي.</p>
+          </details>
+          <details>
+            <summary>هل طلب المعاينة بيحجز موعدًا فعليًا؟</summary>
+            <p>لا. يظهر ملخصًا على جهازك فقط، ولا يُرسل لأي مكتب أو يحجز موعدًا.</p>
+          </details>
+          <details>
+            <summary>هل أقدر أستخدم الفكرة لمكتب عقارات؟</summary>
+            <p>
+              نعم، بعد تخصيص الهوية وربط البيانات الفعلية ووسائل التواصل وتحديد طريقة إدارة الوحدات
+              ضمن نطاق المشروع.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="e-bottom">
+        <div class="wrap">
+          <div>
+            <p>خلّي وحداتك أسهل في الاستكشاف.</p>
+            <h2>عنوان نشاطك،<br />يستحق حضورًا واضحًا.</h2>
+          </div>
+          <a class="btn" href="https://wajha-mk2373982.pages.dev/#contact"
+            >اطلب موقعًا مشابهًا <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <div>
+          <h3>عنوان</h3>
+          <p>هوية افتراضية. بيانات وصور توضيحية.</p>
+        </div>
+        <a href="https://wajha-mk2373982.pages.dev/">تصميم وتطوير — واجهة ↗</a>
+      </div>
+    </footer>
+    <dialog id="propertyDialog">
+      <div class="dialog-head">
+        <h2 id="propertyTitle"></h2>
+        <button class="dialog-close" data-close aria-label="إغلاق تفاصيل الوحدة" type="button">
+          ×
+        </button>
+      </div>
+      <img id="propertyImage" src="./assets/hero.jpg" alt="" /><span class="detail-disclosure"
+        >الصورة مولّدة والبيانات تجريبية</span
+      >
+      <p id="propertyPrice" class="detail-price"></p>
+      <div id="propertySpecs" class="detail-specs"></div>
+      <p id="propertyDescription"></p>
+      <form id="viewingForm">
+        <h3>جرّب طلب معاينة</h3>
+        <label>التاريخ المفضل<input name="date" type="date" required /></label
+        ><label
+          >الفترة<select name="time">
+            <option>صباحًا</option>
+            <option>مساءً</option>
+          </select></label
+        ><button class="btn form-full" type="submit">
+          اعرض ملخص المعاينة <span aria-hidden="true">↗</span>
+        </button>
+        <div class="result" role="status" aria-live="polite"></div>
+      </form>
+    </dialog>
+    <script src="./common.js" defer></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

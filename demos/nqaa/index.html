@@ -1,0 +1,225 @@
+<!doctype html>
+<!-- هيكل الصفحة. ملفات CSS تضبط المظهر وملفات JavaScript تضيف التفاعل. -->
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#176b62" />
+    <meta
+      name="description"
+      content="نموذج موقع عصري لعيادة أسنان افتراضية، يعرض الخدمات وتجربة طلب موعد توضيحي."
+    />
+    <title>نقاء — نموذج عيادة أسنان</title>
+    <link rel="stylesheet" href="./base.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="demo-bar">
+      نموذج لعيادة افتراضية؛ لا يوجد طبيب أو حجز فعلي. الصورة مولّدة للتوضيح.<a
+        href="https://wajha-mk2373982.pages.dev/#contact"
+        >اطلب موقعًا لعيادتك ↗</a
+      >
+    </div>
+    <header class="site-header wrap">
+      <a class="brand" href="./index.html"
+        ><svg viewBox="0 0 40 44" fill="none" aria-hidden="true">
+          <path
+            d="M20 7C10-2 1 5 4 17c2 7 3 21 8 21 4 0 2-15 8-15s4 15 8 15c5 0 6-14 8-21C39 5 30-2 20 7Z"
+            stroke="currentColor"
+            stroke-width="2.5"
+          />
+          <path d="M14 10c4 3 8 3 12 0" stroke="currentColor" stroke-width="2" /></svg
+        ><span>نقاء<small>نموذج لعيادة أسنان</small></span></a
+      >
+      <nav class="nav-links" id="nav" aria-label="القائمة الرئيسية">
+        <a href="#services">الخدمات</a><a href="#approach">تجربة الزيارة</a
+        ><a href="#faq">أسئلة شائعة</a>
+      </nav>
+      <a class="btn header-cta" href="#appointment"
+        >جرّب طلب موعد <span aria-hidden="true">↗</span></a
+      ><button
+        class="menu-button"
+        aria-label="افتح القائمة"
+        aria-controls="nav"
+        aria-expanded="false"
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+    <!-- المحتوى الرئيسي للصفحة. -->
+    <main>
+      <section class="d-hero wrap">
+        <div class="d-copy">
+          <p class="eyebrow">مساحة أهدى للعناية بابتسامتك</p>
+          <h1>ابتسامتك،<br />تستحق الاهتمام.</h1>
+          <p class="hero-text">
+            تصوّر لعيادة تستقبلك بتجربة واضحة ومريحة؛ تعرف الخدمات، تفهم خطوات الزيارة، وتجهّز طلب
+            الموعد في دقائق.
+          </p>
+          <a class="btn" href="#appointment"
+            >ابدأ بطلب موعد تجريبي <span aria-hidden="true">↗</span></a
+          >
+          <div class="d-tags">
+            <span>تجربة واضحة</span><span>تواصل أسهل</span><span>اهتمام بالتفاصيل</span>
+          </div>
+        </div>
+        <div class="d-photo">
+          <img
+            src="./assets/hero.jpg"
+            alt="تصوّر مولّد لغرفة علاج أسنان عصرية بكرسي أخضر وخامات فاتحة"
+            width="1536"
+            height="1024"
+          />
+          <div class="photo-caption">
+            <span class="caption-plus" aria-hidden="true">+</span>
+            <div>
+              <strong>تفاصيل تخلّي البداية أهدى.</strong
+              ><small>تصوّر للعيادة، وليس صورة لمكان قائم</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="d-services section" id="services">
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">الخدمات في مكان واحد</p>
+              <h2>اعرف المتاح،<br />واختار سبب الزيارة.</h2>
+            </div>
+            <p>
+              تصنيف توضيحي لخدمات يمكن عرضها على موقع العيادة. تحديد العلاج المناسب يتم مع طبيب
+              مرخّص.
+            </p>
+          </div>
+          <div class="d-service-grid">
+            <article>
+              <span class="service-symbol" aria-hidden="true">⌕</span>
+              <h3>الفحص والاستشارة</h3>
+              <p>مساحة للتعريف بالزيارة الأولى، وطريقة مناقشة احتياج المراجع.</p>
+              <button type="button" data-service="فحص واستشارة">اختار الخدمة ↗</button>
+            </article>
+            <article>
+              <span class="service-symbol" aria-hidden="true">✧</span>
+              <h3>تنظيف الأسنان</h3>
+              <p>عرض خدمة العناية والتنظيف، مع توضيح أن التفاصيل تُناقَش أثناء الكشف.</p>
+              <button type="button" data-service="تنظيف الأسنان">اختار الخدمة ↗</button>
+            </article>
+            <article>
+              <span class="service-symbol" aria-hidden="true">⌘</span>
+              <h3>استشارة تقويم</h3>
+              <p>نموذج لطلب استشارة عن التقويم دون وعود أو نتائج علاجية مسبقة.</p>
+              <button type="button" data-service="استشارة تقويم">اختار الخدمة ↗</button>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="wrap section d-approach" id="approach">
+        <div>
+          <p class="eyebrow">من أول زيارة</p>
+          <h2>وقت للأسئلة.<br />ومساحة للفهم.</h2>
+          <p>
+            الموقع الجيد يسهّل على المراجع معرفة المطلوب قبل الزيارة، ويخلّي التواصل مع العيادة
+            منظمًا.
+          </p>
+          <span class="d-disclosure">اسم «نقاء» وهوية العيادة هنا للتصميم التجريبي فقط.</span>
+        </div>
+        <ol>
+          <li>
+            <span>01</span>
+            <div>
+              <h3>تحدد سبب الزيارة</h3>
+              <p>اختار الخدمة الأقرب لاحتياجك.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>تكتب الوقت المناسب</h3>
+              <p>جهّز رغبتك في الموعد، بدون تأكيد تلقائي.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>تراجع ملخص الطلب</h3>
+              <p>في هذا النموذج الملخص محلي ولا يُرسل لأي عيادة.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section class="wrap section d-faq faq" id="faq">
+        <div>
+          <p class="eyebrow">قبل ما تبدأ</p>
+          <h2>أسئلة في بالك.</h2>
+        </div>
+        <div>
+          <details>
+            <summary>هل دي عيادة حقيقية؟</summary>
+            <p>لا، دي هوية افتراضية لعرض تصميم الموقع. مفيش طبيب أو عنوان أو مواعيد عيادة فعلية.</p>
+          </details>
+          <details>
+            <summary>هل الطلب هنا بيحجز موعد؟</summary>
+            <p>لا. النموذج بيجهّز ملخصًا توضيحيًا فقط، ولا يتم إرساله أو تخزينه على خادم.</p>
+          </details>
+          <details>
+            <summary>هل الموقع بيقدّم تشخيصًا؟</summary>
+            <p>لا، الموقع نموذج عرض خدمات ولا يقدّم تشخيصًا أو خطة علاج.</p>
+          </details>
+        </div>
+      </section>
+      <section class="d-booking" id="appointment">
+        <div class="wrap d-booking-grid">
+          <div>
+            <p class="eyebrow">تجربة طلب موعد</p>
+            <h2>نرتّب أول خطوة.</h2>
+            <p>جرّب النموذج من غير إدخال بيانات صحية أو شخصية حقيقية. هتشوف الملخص قدامك فقط.</p>
+            <a class="d-contact" href="https://wajha-mk2373982.pages.dev/#contact"
+              >عايز موقعًا مشابهًا لعيادتك؟ ↗</a
+            >
+          </div>
+          <form id="appointmentForm">
+            <label
+              >اسم تجريبي<input
+                name="name"
+                required
+                maxlength="100"
+                placeholder="مثال: زائر تجريبي" /></label
+            ><label
+              >سبب الزيارة<select id="service" name="service">
+                <option>فحص واستشارة</option>
+                <option>تنظيف الأسنان</option>
+                <option>استشارة تقويم</option>
+              </select></label
+            >
+            <div class="form-grid">
+              <label>التاريخ المفضل<input name="date" type="date" required /></label
+              ><label
+                >الفترة<select name="time">
+                  <option>صباحًا</option>
+                  <option>مساءً</option>
+                </select></label
+              >
+            </div>
+            <button class="btn form-full" type="submit">
+              اعرض طلب الموعد <span aria-hidden="true">↗</span>
+            </button>
+            <p class="form-note">تجربة محلية فقط؛ لا يوجد موعد مؤكّد أو إرسال بيانات.</p>
+            <div class="result" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <div>
+          <h3>نقاء</h3>
+          <p>نموذج افتراضي لعيادة أسنان. الصور مولّدة.</p>
+        </div>
+        <a href="https://wajha-mk2373982.pages.dev/">تصميم وتطوير — واجهة ↗</a>
+      </div>
+    </footer>
+    <script src="./common.js" defer></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,335 @@
+/* تنسيق المظهر: الألوان والمسافات وأحجام العناصر وتخطيط الصفحة. */
+
+/* قيم مشتركة للألوان والخطوط يمكن تعديلها من مكان واحد. */
+:root {
+  --ink: #183e3a;
+  --accent: #176b62;
+  --muted: #6e8580;
+  --line: #d7e5df;
+  --bg: #fbfdfb;
+}
+.d-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  gap: 65px;
+  align-items: center;
+  padding-block: 50px 75px;
+}
+.d-copy h1 {
+  font-size: clamp(43px, 4.6vw, 64px);
+  font-weight: 550;
+}
+.hero-text {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 420px;
+  margin: 24px 0 30px;
+  line-height: 2.2;
+}
+.d-photo {
+  position: relative;
+  padding: 0 0 24px 24px;
+}
+.d-photo:after {
+  content: "";
+  position: absolute;
+  inset: 35px 30px 0 0;
+  background: #dbece5;
+  border-radius: 180px 20px 20px 20px;
+  z-index: -1;
+}
+.d-photo > img {
+  height: 530px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 42% 50%;
+  border-radius: 190px 190px 18px 18px;
+}
+.photo-caption {
+  position: absolute;
+  right: -20px;
+  left: 60px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 25px #183e3a09;
+  border-radius: 14px;
+}
+.caption-plus {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e4f1eb;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+.photo-caption strong {
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+}
+.photo-caption small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.d-tags {
+  display: flex;
+  gap: 18px;
+  margin-top: 27px;
+  color: var(--muted);
+  font-size: 9px;
+}
+.d-tags span:before {
+  content: "✓";
+  margin-left: 5px;
+  color: var(--accent);
+}
+.d-services {
+  background: #edf5f0;
+}
+.d-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.d-service-grid article {
+  background: #fff;
+  padding: 32px;
+  border: 1px solid #e2ece5;
+  border-radius: 16px;
+}
+.service-symbol {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: #ecf5ef;
+  border-radius: 13px;
+  font-size: 29px;
+  margin-bottom: 23px;
+}
+.d-service-grid p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 15px;
+  line-height: 2.1;
+}
+.d-service-grid button {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 15px 0 7px;
+  color: var(--accent);
+  font-size: 11px;
+  margin-top: 16px;
+}
+.d-approach {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+.d-approach > div > p:not(.eyebrow) {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 390px;
+  margin-top: 22px;
+}
+.d-disclosure {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 25px;
+}
+.d-approach ol {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+}
+.d-approach li {
+  display: flex;
+  gap: 25px;
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+}
+.d-approach li:first-child {
+  padding-top: 0;
+}
+.d-approach li > span {
+  font-size: 13px;
+  color: #91afa1;
+  margin-top: 9px;
+}
+.d-approach li h3 {
+  font-size: 19px;
+}
+.d-approach li p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.d-faq {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 80px;
+  padding-top: 0;
+}
+.d-booking {
+  background: #dceee4;
+  padding: 70px 0;
+}
+.d-booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 110px;
+}
+.d-booking-grid > div > p:not(.eyebrow) {
+  font-size: 13px;
+  color: #5e7d70;
+  max-width: 360px;
+  margin-top: 25px;
+}
+.d-contact {
+  display: inline-block;
+  border-bottom: 1px solid #9db8a9;
+  padding-bottom: 8px;
+  font-size: 11px;
+  margin-top: 28px;
+}
+.d-booking form {
+  background: #fff;
+  border: 1px solid #caddd0;
+  border-radius: 17px;
+  padding: 30px;
+}
+.d-booking .result {
+  background: #edf5ef;
+  border-radius: 10px;
+  padding: 15px;
+}
+.d-booking .result:empty {
+  padding: 0;
+}
+/* قواعد تتكيف مع حجم الشاشة أو إعدادات المستخدم حسب الشرط التالي. */
+@media (max-width: 900px) {
+  .d-hero {
+    gap: 35px;
+  }
+  .d-photo > img {
+    height: 470px;
+  }
+  .d-hero h1 {
+    font-size: 48px;
+  }
+  .photo-caption {
+    right: -10px;
+    left: 35px;
+    padding: 17px;
+  }
+  .d-service-grid article {
+    padding: 24px;
+  }
+  .d-approach,
+  .d-booking-grid {
+    gap: 55px;
+  }
+}
+@media (max-width: 600px) {
+  .d-hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-block: 28px 50px;
+  }
+  .d-hero h1 {
+    font-size: 43px;
+  }
+  .hero-text {
+    font-size: 12px;
+    margin: 20px 0 26px;
+  }
+  .d-tags {
+    font-size: 8px;
+    gap: 16px;
+    margin-top: 23px;
+  }
+  .d-photo {
+    padding: 0 0 25px 15px;
+  }
+  .d-photo > img {
+    height: 360px;
+    border-radius: 150px 150px 12px 12px;
+  }
+  .photo-caption {
+    right: 0;
+    left: 30px;
+    padding: 15px;
+    gap: 12px;
+  }
+  .photo-caption strong {
+    font-size: 10px;
+  }
+  .photo-caption small {
+    font-size: 8px;
+    line-height: 1.8;
+  }
+  .caption-plus {
+    width: 33px;
+    height: 33px;
+    font-size: 25px;
+  }
+  .d-service-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .d-service-grid article {
+    padding: 25px;
+  }
+  .d-service-grid p {
+    font-size: 11px;
+  }
+  .d-approach {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .d-approach > div > p:not(.eyebrow) {
+    font-size: 12px;
+  }
+  .d-approach li p {
+    font-size: 11px;
+  }
+  .d-faq {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .d-booking {
+    padding-block: 55px;
+  }
+  .d-booking-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .d-booking-grid > div > p:not(.eyebrow) {
+    font-size: 12px;
+  }
+  .d-booking form {
+    padding: 23px;
+  }
+  .d-disclosure {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 600px) {
+  .d-hero h1 {
+    font-size: 37px;
+  }
+}
