@@ -1,13 +1,18 @@
 <!doctype html>
-<!-- هيكل الصفحة. ملفات CSS تضبط المظهر وملفات JavaScript تضيف التفاعل. -->
-<html lang="ar" dir="rtl">
+<!-- هيكل الصفحة الرئيسية لموقع واجهة. ملفات CSS تضبط المظهر وملفات JavaScript تضيف التفاعل. -->
+<html lang="ar" dir="rtl" id="top">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#284bff" />
+    <meta name="theme-color" content="#030508" />
     <meta
       name="description"
-      content="تصميم مواقع تعريفية عربية تبرز خدمات نشاطك وتسهّل تواصل العملاء. شاهد تطبيق على قدي ونموذج موقع مساحة."
+      content="تصميم مواقع تعريفية عربية تبرز خدمات نشاطك وتسهّل تواصل العملاء. شاهد تطبيق على قدي ونماذج مساحة ونقاء ورِواق وعنوان."
+    />
+    <meta property="og:title" content="واجهة — شغلك يستحق واجهة تليق به" />
+    <meta
+      property="og:description"
+      content="تصميم مواقع تعريفية عربية وتجارب رقمية تبرز خدمات نشاطك وتسهّل تواصل العملاء."
     />
     <title>واجهة — شغلك يستحق واجهة تليق به</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
@@ -15,100 +20,198 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./portfolio-updates.css" />
   </head>
-  <body class="portfolio">
-    <header class="p-header shell">
-      <a class="p-logo" href="./index.html" aria-label="واجهة، الصفحة الرئيسية"
-        ><span class="logo-shape" aria-hidden="true"></span>واجهة<span class="logo-caption"
-          >تصميم مواقع وتجارب رقمية</span
-        ></a
-      >
-      <nav aria-label="القائمة الرئيسية">
-        <a href="#work">الشغل</a><a href="#service">الخدمة</a><a href="#process">الخطوات</a>
-      </nav>
-      <a class="pill-cta" href="#contact">خلينا نتكلم <span aria-hidden="true">↗</span></a
-      ><button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="mobile-nav"
-        aria-label="افتح القائمة"
-      >
-        <span></span><span></span>
-      </button>
+  <body class="portfolio is-loading">
+    <!-- الستارة الافتتاحية السينمائية -->
+    <div
+      id="curtain-preloader"
+      class="curtain-preloader"
+      role="status"
+      aria-live="polite"
+      aria-label="جاري تحميل موقع واجهة"
+    >
+      <div class="curtain-inner">
+        <div class="curtain-brand">
+          <span class="logo-shape" aria-hidden="true"></span>
+          <span class="curtain-wordmark">واجهة</span>
+        </div>
+        <div class="curtain-meter">
+          <span id="curtain-count" class="curtain-count" dir="ltr">00</span>
+          <span class="curtain-percent" aria-hidden="true">%</span>
+        </div>
+        <div class="curtain-track" aria-hidden="true">
+          <div id="curtain-bar" class="curtain-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الخلفية التفاعلية الحية وطبقة الملمس السينمائي -->
+    <canvas id="fluid-canvas" class="fluid-canvas" aria-hidden="true"></canvas>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- المؤشر المخصص للديسكتوب فقط -->
+    <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+      <div class="cursor-ring">
+        <span class="cursor-label">جرّب الموقع ↗</span>
+      </div>
+      <div class="cursor-dot"></div>
+    </div>
+
+    <!-- شريط التنقل الرئيسي -->
+    <header class="p-header">
+      <div class="shell p-header-inner">
+        <a class="p-logo" href="./index.html" aria-label="واجهة، الصفحة الرئيسية">
+          <span class="logo-shape" aria-hidden="true"></span>
+          <span>واجهة</span>
+        </a>
+        <nav aria-label="القائمة الرئيسية">
+          <a href="#work">الشغل</a>
+          <a href="#service">الخدمة</a>
+          <a href="#process">الخطوات</a>
+        </nav>
+        <div class="header-actions">
+          <a class="pill-cta magnetic-btn" data-magnetic href="#contact">
+            <span>خلينا نتكلم</span>
+            <span class="cta-arrow" aria-hidden="true">↗</span>
+          </a>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            aria-label="افتح القائمة"
+          >
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
     </header>
+
     <nav id="mobile-nav" class="mobile-nav" aria-label="قائمة الموبايل" hidden>
-      <a href="#work">الشغل</a><a href="#service">الخدمة</a><a href="#contact">ابدأ مشروعك</a>
+      <a href="#work">الشغل</a>
+      <a href="#service">الخدمة</a>
+      <a href="#process">الخطوات</a>
+      <a href="#contact">ابدأ مشروعك</a>
     </nav>
-    <!-- المحتوى الرئيسي للصفحة. -->
+
+    <!-- المحتوى الرئيسي للصفحة -->
     <main>
       <section class="p-hero shell">
         <div class="p-hero-copy">
-          <div class="availability"><i></i>موقعك يبدأ بفكرة واضحة</div>
-          <h1>شغلك يستحق<br />واجهة تليق به.</h1>
-          <p class="hero-description">
+          <div class="availability hero-stagger" style="--stagger: 1">
+            <span class="kicker-rule" aria-hidden="true"></span>
+            <span>موقعك يبدأ بفكرة واضحة</span>
+          </div>
+          <h1 class="hero-headline">
+            <span class="reveal-line"><span class="reveal-line-inner">شغلك يستحق</span></span>
+            <span class="reveal-line"
+              ><span class="reveal-line-inner"
+                >واجهة <span class="headline-accent">تليق به.</span></span
+              ></span
+            >
+          </h1>
+          <p class="hero-description hero-stagger" style="--stagger: 2">
             حوّل اللي بتقدّمه لتجربة يشوفها عميلك، يفهم قيمتها، ويعرف يتواصل معاك. تصميم عربي، معمول
             للموبايل من البداية.
           </p>
-          <div class="hero-actions">
-            <a class="btn blue" href="#contact">نتكلم عن موقعك <span aria-hidden="true">↗</span></a
-            ><a class="round-link" href="#work"
-              ><span class="round-arrow" aria-hidden="true">↓</span>شوف الشغل بنفسك</a
-            >
+          <div class="hero-actions hero-stagger" style="--stagger: 3">
+            <a class="btn blue magnetic-btn" data-magnetic href="#contact">
+              <span>نتكلم عن موقعك</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="round-link" href="#work">
+              <span class="round-arrow" aria-hidden="true">↓</span>
+              <span>شوف الشغل بنفسك</span>
+            </a>
           </div>
-          <div class="hero-qualities">
-            <span>هوية تناسب نشاطك</span><span>تجربة موبايل</span><span>تواصل مباشر</span>
+          <div class="hero-qualities hero-stagger" style="--stagger: 4">
+            <span>هوية تناسب نشاطك</span>
+            <span class="meta-sep" aria-hidden="true">·</span>
+            <span>تجربة موبايل</span>
+            <span class="meta-sep" aria-hidden="true">·</span>
+            <span>تواصل مباشر</span>
           </div>
         </div>
-        <div
-          class="digital-stage"
-          aria-label="نموذج موقع مساحة ولقطة حقيقية لتطبيق على قدي ببيانات تجريبية"
-        >
-          <div class="stage-grid" aria-hidden="true"></div>
+
+        <!-- بطاقة العرض التفاعلية ثلاثية الأبعاد 3D Perspective Tilt -->
+        <div class="tilt-stage-wrap hero-stagger" style="--stagger: 2">
           <div class="stage-caption">من شغلك على الأرض، لحضور واضح على الشاشة.</div>
-          <a class="mini-browser" href="./demos/masaha/" aria-label="افتح نموذج موقع مساحة"
-            ><div class="window-top">
-              <span>masaha / interior concept</span><i></i><i></i><i></i>
-            </div>
-            <div class="mini-site">
-              <img
-                src="./assets/living.jpg"
-                alt="تصور معماري من نموذج موقع مساحة"
-                width="1800"
-                height="860"
-              />
-              <div class="mini-site-copy">
-                <span>مساحة</span><strong>الحياة في<br />أجمل تفاصيلها.</strong
-                ><small>نموذج موقع تشطيبات</small>
-              </div>
-            </div>
-            <div class="mini-site-bottom">
-              <span>تصميم داخلي</span><span>تشطيبات</span><span>مساحات معاصرة</span>
-            </div></a
-          ><a
-            class="phone-preview qadi-real"
-            href="https://ala-qadi-app.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="افتح على قدي؛ الواجهة المعروضة لقطة حقيقية ببيانات تجريبية"
-            ><img
-              src="./assets/ala-qadi-screen.jpg"
-              alt="لقطة من واجهة على قدي الحقيقية ببيانات تجريبية"
-              width="390"
-              height="844" /></a
-          ><span class="floating-tag"
-            ><span aria-hidden="true">✳</span>موبايل وكمبيوتر، بنفس الاهتمام.</span
+          <div
+            class="digital-stage tilt-card"
+            data-tilt
+            aria-label="معاينة تفاعلية ثلاثية الأبعاد لنموذج موقع مساحة وتطبيق على قدي"
           >
+            <div class="stage-grid" aria-hidden="true"></div>
+            <div class="tilt-glare" aria-hidden="true"></div>
+
+            <a
+              class="mini-browser"
+              href="./demos/masaha/"
+              data-cursor="project"
+              aria-label="افتح نموذج موقع مساحة"
+            >
+              <div class="window-top">
+                <span>masaha / interior concept</span>
+                <i></i><i></i><i></i>
+              </div>
+              <div class="mini-site">
+                <img
+                  src="./assets/living.jpg"
+                  alt="تصور معماري من نموذج موقع مساحة"
+                  width="1800"
+                  height="860"
+                />
+                <div class="mini-site-copy">
+                  <span>مساحة</span>
+                  <strong>الحياة في<br />أجمل تفاصيلها.</strong>
+                  <small>نموذج موقع تشطيبات</small>
+                </div>
+              </div>
+              <div class="mini-site-bottom">
+                <span>تصميم داخلي</span>
+                <span>تشطيبات</span>
+                <span>مساحات معاصرة</span>
+              </div>
+            </a>
+
+            <a
+              class="phone-preview qadi-real"
+              href="https://ala-qadi-app.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="project"
+              aria-label="افتح على قدي؛ الواجهة المعروضة لقطة حقيقية ببيانات تجريبية"
+            >
+              <img
+                src="./assets/ala-qadi-screen.jpg"
+                alt="لقطة من واجهة على قدي الحقيقية ببيانات تجريبية"
+                width="390"
+                height="844"
+              />
+            </a>
+
+            <span class="floating-tag">
+              <span aria-hidden="true">✳</span>
+              <span>موبايل وكمبيوتر، بنفس الاهتمام.</span>
+            </span>
+          </div>
         </div>
       </section>
+
       <div class="capability-strip">
         <div class="shell">
-          <span>مواقع تعريفية</span><i aria-hidden="true">✳</i><span>تطبيقات ويب</span
-          ><i aria-hidden="true">✳</i><span>تجربة عربية</span><i aria-hidden="true">✳</i
-          ><span>من الموبايل للكمبيوتر</span>
+          <span>مواقع تعريفية</span>
+          <i aria-hidden="true">·</i>
+          <span>تطبيقات ويب</span>
+          <i aria-hidden="true">·</i>
+          <span>تجربة عربية</span>
+          <i aria-hidden="true">·</i>
+          <span>من الموبايل للكمبيوتر</span>
         </div>
       </div>
+
+      <!-- قسم الأعمال بنظام البطاقات المتكدسة Sticky Stacking Deck -->
       <section class="p-work shell section" id="work">
-        <div class="section-top">
+        <div class="section-top reveal-on-scroll">
           <div>
             <p class="eyebrow">شغل يتشاف ويتجرّب</p>
             <h2>نماذج تقدر تجرّبها.</h2>
@@ -118,181 +221,266 @@
             تجربته بنفسك.
           </p>
         </div>
-        <div class="project-grid">
-          <article class="project architecture-project">
-            <a href="./demos/masaha/" class="project-image architecture-image"
-              ><img
-                src="./assets/living.jpg"
-                alt="تصوّر معماري مولّد لغرفة معيشة من موقع مساحة"
-                width="1800"
-                height="860"
-                loading="lazy"
-              /><span class="project-badge">نموذج تصوّري</span
-              ><span class="project-image-title">مساحة<strong>تفاصيل تتحسّ.</strong></span
-              ><span class="project-arrow" aria-hidden="true">↗</span></a
-            >
-            <div class="project-meta">
-              <div>
+
+        <div class="project-stack" data-stack-deck>
+          <!-- 01: مساحة -->
+          <article class="stack-card" style="--card-index: 0" data-stack-card>
+            <div class="stack-card-inner" data-cursor="project">
+              <div class="stack-card-scrim" aria-hidden="true"></div>
+              <div class="stack-card-copy">
+                <div class="stack-kicker">
+                  <span class="stack-index" dir="ltr">01</span>
+                  <span class="meta-sep" aria-hidden="true">/</span>
+                  <span>نموذج تصوّري</span>
+                </div>
                 <h3>مساحة للتشطيبات والديكور</h3>
-                <p>موقع تعريفي • معرض تصوّرات • طلب مشروع</p>
+                <p class="stack-tags">موقع تعريفي · معرض تصوّرات · طلب مشروع</p>
+                <p class="project-note">
+                  شركة افتراضية وصور مولّدة للتصوّر؛ ليست مشروعات منفّذة أو أعمال عملاء.
+                </p>
+                <a
+                  href="./demos/masaha/"
+                  class="stack-action magnetic-btn"
+                  data-magnetic
+                  aria-label="افتح موقع مساحة"
+                >
+                  <span>جرّب الموقع</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
               </div>
-              <a href="./demos/masaha/" aria-label="افتح موقع مساحة">↗</a>
-            </div>
-            <p class="project-note">
-              شركة افتراضية وصور مولّدة للتصوّر؛ ليست مشروعات منفّذة أو أعمال عملاء.
-            </p>
-          </article>
-          <article class="project finance-project">
-            <a
-              href="https://ala-qadi-app.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-image finance-image qadi-project"
-              ><span class="project-badge">واجهة التطبيق الحقيقية</span>
-              <div class="qadi-card-copy">
-                <span>تطبيق ويب فعلي</span><strong>على قدي</strong>
-                <p>فلوسك،<br />في صورة أوضح.</p>
-                <small>لقطة فعلية ببيانات تجريبية</small>
-              </div>
-              <div class="qadi-card-screen">
+              <a
+                href="./demos/masaha/"
+                class="stack-card-media architecture-image"
+                aria-label="معاينة نموذج موقع مساحة"
+              >
                 <img
-                  src="./assets/ala-qadi-screen.jpg"
-                  alt="واجهة تطبيق على قدي الحقيقية، مع رصيد في محفظة تجريبية"
-                  width="390"
-                  height="844"
+                  src="./assets/living.jpg"
+                  alt="تصوّر معماري مولّد لغرفة معيشة من موقع مساحة"
+                  width="1800"
+                  height="860"
                   loading="lazy"
                 />
-              </div>
-              <span class="project-arrow" aria-hidden="true">↗</span></a
-            >
-            <div class="project-meta">
-              <div>
+                <span class="project-image-title">مساحة<strong>تفاصيل تتحسّ.</strong></span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 02: على قدي -->
+          <article class="stack-card" style="--card-index: 1" data-stack-card>
+            <div class="stack-card-inner" data-cursor="project">
+              <div class="stack-card-scrim" aria-hidden="true"></div>
+              <div class="stack-card-copy">
+                <div class="stack-kicker">
+                  <span class="stack-index" dir="ltr">02</span>
+                  <span class="meta-sep" aria-hidden="true">/</span>
+                  <span>واجهة التطبيق الحقيقية</span>
+                </div>
                 <h3>على قدي لإدارة المالية الشخصية</h3>
-                <p>تطبيق ويب • إدارة مالية • يعمل بدون إنترنت</p>
+                <p class="stack-tags">تطبيق ويب · إدارة مالية · يعمل بدون إنترنت</p>
+                <p class="project-note">
+                  تطبيق أنشأته وأستخدمه لتنظيم الدخل والمصاريف والديون والأقساط والجمعيات والمدخرات.
+                </p>
+                <a
+                  href="https://ala-qadi-app.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="stack-action magnetic-btn"
+                  data-magnetic
+                  aria-label="افتح تطبيق على قدي"
+                >
+                  <span>افتح التطبيق</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
               </div>
               <a
                 href="https://ala-qadi-app.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="افتح تطبيق على قدي"
-                >↗</a
+                class="stack-card-media qadi-showcase-media"
+                aria-label="معاينة تطبيق على قدي"
               >
+                <div class="qadi-card-copy">
+                  <span>تطبيق ويب فعلي</span>
+                  <strong>على قدي</strong>
+                  <p>فلوسك،<br />في صورة أوضح.</p>
+                  <small>لقطة فعلية ببيانات تجريبية</small>
+                </div>
+                <div class="qadi-card-screen">
+                  <img
+                    src="./assets/ala-qadi-screen.jpg"
+                    alt="واجهة تطبيق على قدي الحقيقية، مع رصيد في محفظة تجريبية"
+                    width="390"
+                    height="844"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
             </div>
-            <p class="project-note">
-              تطبيق أنشأته وأستخدمه لتنظيم الدخل والمصاريف والديون والأقساط والجمعيات والمدخرات.
-            </p>
           </article>
-          <article class="project sector-project">
-            <a class="project-image sector-image" href="./demos/nqaa/" rel="noopener noreferrer"
-              ><img
-                src="./assets/dental.jpg"
-                alt="صورة مولّدة من نموذج نقاء — عيادة أسنان افتراضية"
-                width="1536"
-                height="1024"
-                loading="lazy"
-              /><span class="project-badge">نموذج منفّذ قابل للتجربة</span
-              ><span class="project-arrow" aria-hidden="true">↗</span></a
-            >
-            <div class="project-meta">
-              <div>
+
+          <!-- 03: نقاء -->
+          <article class="stack-card" style="--card-index: 2" data-stack-card>
+            <div class="stack-card-inner" data-cursor="project">
+              <div class="stack-card-scrim" aria-hidden="true"></div>
+              <div class="stack-card-copy">
+                <div class="stack-kicker">
+                  <span class="stack-index" dir="ltr">03</span>
+                  <span class="meta-sep" aria-hidden="true">/</span>
+                  <span>نموذج منفّذ قابل للتجربة</span>
+                </div>
                 <h3>نقاء — عيادة أسنان افتراضية</h3>
-                <p>خدمات عيادة • اختيار خدمة • طلب موعد تجريبي</p>
+                <p class="stack-tags">خدمات عيادة · اختيار خدمة · طلب موعد تجريبي</p>
+                <p class="project-note">هوية افتراضية وصورة مولّدة؛ لا يوجد طبيب أو حجز فعلي.</p>
+                <a
+                  href="./demos/nqaa/"
+                  rel="noopener noreferrer"
+                  class="stack-action magnetic-btn"
+                  data-magnetic
+                  aria-label="افتح نقاء — عيادة أسنان افتراضية"
+                >
+                  <span>جرّب الموقع</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
               </div>
               <a
                 href="./demos/nqaa/"
                 rel="noopener noreferrer"
-                aria-label="افتح نقاء — عيادة أسنان افتراضية"
-                >↗</a
+                class="stack-card-media sector-image"
+                aria-label="معاينة نموذج نقاء"
               >
+                <img
+                  src="./assets/dental.jpg"
+                  alt="صورة مولّدة من نموذج نقاء — عيادة أسنان افتراضية"
+                  width="1536"
+                  height="1024"
+                  loading="lazy"
+                />
+              </a>
             </div>
-            <p class="project-note">هوية افتراضية وصورة مولّدة؛ لا يوجد طبيب أو حجز فعلي.</p>
           </article>
-          <article class="project sector-project">
-            <a class="project-image sector-image" href="./demos/riwaq/" rel="noopener noreferrer"
-              ><img
-                src="./assets/restaurant.jpg"
-                alt="صورة مولّدة من نموذج رِواق — مطعم افتراضي"
-                width="1536"
-                height="1024"
-                loading="lazy"
-              /><span class="project-badge">نموذج منفّذ قابل للتجربة</span
-              ><span class="project-arrow" aria-hidden="true">↗</span></a
-            >
-            <div class="project-meta">
-              <div>
+
+          <!-- 04: رِواق -->
+          <article class="stack-card" style="--card-index: 3" data-stack-card>
+            <div class="stack-card-inner" data-cursor="project">
+              <div class="stack-card-scrim" aria-hidden="true"></div>
+              <div class="stack-card-copy">
+                <div class="stack-kicker">
+                  <span class="stack-index" dir="ltr">04</span>
+                  <span class="meta-sep" aria-hidden="true">/</span>
+                  <span>نموذج منفّذ قابل للتجربة</span>
+                </div>
                 <h3>رِواق — مطعم افتراضي</h3>
-                <p>قائمة تفاعلية • بحث وتصنيف • ملخص طلب</p>
+                <p class="stack-tags">قائمة تفاعلية · بحث وتصنيف · ملخص طلب</p>
+                <p class="project-note">الأطباق والأسعار توضيحية؛ لا يتم إرسال طلب أو دفع أموال.</p>
+                <a
+                  href="./demos/riwaq/"
+                  rel="noopener noreferrer"
+                  class="stack-action magnetic-btn"
+                  data-magnetic
+                  aria-label="افتح رِواق — مطعم افتراضي"
+                >
+                  <span>جرّب الموقع</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
               </div>
               <a
                 href="./demos/riwaq/"
                 rel="noopener noreferrer"
-                aria-label="افتح رِواق — مطعم افتراضي"
-                >↗</a
+                class="stack-card-media sector-image"
+                aria-label="معاينة نموذج رِواق"
               >
+                <img
+                  src="./assets/restaurant.jpg"
+                  alt="صورة مولّدة من نموذج رِواق — مطعم افتراضي"
+                  width="1536"
+                  height="1024"
+                  loading="lazy"
+                />
+              </a>
             </div>
-            <p class="project-note">الأطباق والأسعار توضيحية؛ لا يتم إرسال طلب أو دفع أموال.</p>
           </article>
-          <article class="project sector-project">
-            <a class="project-image sector-image" href="./demos/onwan/" rel="noopener noreferrer"
-              ><img
-                src="./assets/estate.jpg"
-                alt="صورة مولّدة من نموذج عنوان — مكتب عقارات افتراضي"
-                width="1536"
-                height="1024"
-                loading="lazy"
-              /><span class="project-badge">نموذج منفّذ قابل للتجربة</span
-              ><span class="project-arrow" aria-hidden="true">↗</span></a
-            >
-            <div class="project-meta">
-              <div>
+
+          <!-- 05: عنوان -->
+          <article class="stack-card" style="--card-index: 4" data-stack-card>
+            <div class="stack-card-inner" data-cursor="project">
+              <div class="stack-card-scrim" aria-hidden="true"></div>
+              <div class="stack-card-copy">
+                <div class="stack-kicker">
+                  <span class="stack-index" dir="ltr">05</span>
+                  <span class="meta-sep" aria-hidden="true">/</span>
+                  <span>نموذج منفّذ قابل للتجربة</span>
+                </div>
                 <h3>عنوان — مكتب عقارات افتراضي</h3>
-                <p>بحث وفلاتر • تفاصيل وحدات • طلب معاينة تجريبي</p>
+                <p class="stack-tags">بحث وفلاتر · تفاصيل وحدات · طلب معاينة تجريبي</p>
+                <p class="project-note">الصور والوحدات والأسعار تجريبية؛ ليست عروض بيع فعلية.</p>
+                <a
+                  href="./demos/onwan/"
+                  rel="noopener noreferrer"
+                  class="stack-action magnetic-btn"
+                  data-magnetic
+                  aria-label="افتح عنوان — مكتب عقارات افتراضي"
+                >
+                  <span>جرّب الموقع</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
               </div>
               <a
                 href="./demos/onwan/"
                 rel="noopener noreferrer"
-                aria-label="افتح عنوان — مكتب عقارات افتراضي"
-                >↗</a
+                class="stack-card-media sector-image"
+                aria-label="معاينة نموذج عنوان"
               >
+                <img
+                  src="./assets/estate.jpg"
+                  alt="صورة مولّدة من نموذج عنوان — مكتب عقارات افتراضي"
+                  width="1536"
+                  height="1024"
+                  loading="lazy"
+                />
+              </a>
             </div>
-            <p class="project-note">الصور والوحدات والأسعار تجريبية؛ ليست عروض بيع فعلية.</p>
           </article>
         </div>
       </section>
+
+      <!-- قسم الخدمة -->
       <section class="p-service" id="service">
         <div class="shell service-layout">
-          <div class="service-intro">
+          <div class="service-intro reveal-on-scroll">
             <p class="eyebrow">موقع تعريفي لنشاطك</p>
             <h2>العميل مش محتاج<br />يدوّر على المعلومة.</h2>
             <p>
               يحتاج يعرف إنت بتقدّم إيه، يشوف شغلك، وياخد خطوة واضحة. ده اللي بنبني عليه الموقع.
             </p>
-            <a class="btn dark" href="#contact">حدّد احتياجك <span aria-hidden="true">↗</span></a>
+            <a class="btn blue magnetic-btn" data-magnetic href="#contact">
+              <span>حدّد احتياجك</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
           </div>
-          <div class="deliverables">
+          <div class="deliverables reveal-on-scroll">
             <article>
-              <span class="deliverable-icon" aria-hidden="true">◈</span>
+              <span class="deliverable-index" dir="ltr">01</span>
               <div>
                 <h3>انطباع أول له شخصية</h3>
                 <p>ألوان وخطوط وتكوين يخدموا نشاطك ويتناسبوا مع هويته.</p>
               </div>
             </article>
             <article>
-              <span class="deliverable-icon" aria-hidden="true">▧</span>
+              <span class="deliverable-index" dir="ltr">02</span>
               <div>
                 <h3>شغلك في الواجهة</h3>
                 <p>عرض للخدمات والأعمال بمحتواك وصورك الفعلية، مع ترتيب يسهّل التصفح.</p>
               </div>
             </article>
             <article>
-              <span class="deliverable-icon" aria-hidden="true">⌁</span>
+              <span class="deliverable-index" dir="ltr">03</span>
               <div>
                 <h3>تواصل من غير تعقيد</h3>
                 <p>زر واتساب وطلب مبدئي يجهّز رسالة تساعدك تفهم احتياج العميل.</p>
               </div>
             </article>
             <article>
-              <span class="deliverable-icon" aria-hidden="true">↔</span>
+              <span class="deliverable-index" dir="ltr">04</span>
               <div>
                 <h3>تجربة مناسبة لكل شاشة</h3>
                 <p>نص مقروء، تنقّل بسيط، وروابط نراجعها على الموبايل والكمبيوتر.</p>
@@ -301,8 +489,10 @@
           </div>
         </div>
       </section>
+
+      <!-- قسم الخطوات -->
       <section class="shell section process-section" id="process">
-        <div class="section-top">
+        <div class="section-top reveal-on-scroll">
           <div>
             <p class="eyebrow">خطوات قليلة، واتفاق واضح</p>
             <h2>إزاي نبدأ؟</h2>
@@ -311,27 +501,32 @@
             السعر والمدة والتعديلات يتحددوا بعد فهم المطلوب، قبل بداية التنفيذ.
           </p>
         </div>
-        <ol class="process-steps">
+        <ol class="process-steps reveal-on-scroll">
           <li>
-            <span>01</span>
+            <span dir="ltr">01</span>
             <h3>نرتّب الفكرة</h3>
             <p>نفهم نشاطك وجمهورك والمحتوى اللي عندك، ونحدّد الهدف من الموقع.</p>
           </li>
           <li>
-            <span>02</span>
+            <span dir="ltr">02</span>
             <h3>نتفق على التفاصيل</h3>
             <p>عرض مكتوب بالصفحات والمخرجات والسعر والمدة وجولات التعديل.</p>
           </li>
           <li>
-            <span>03</span>
+            <span dir="ltr">03</span>
             <h3>تشوف وتراجع</h3>
             <p>معاينة تجرّبها، وتعديلات حسب الاتفاق، ومراجعة قبل التسليم.</p>
           </li>
         </ol>
       </section>
-      <section class="shell p-faq">
-        <h2>قبل أول خطوة.</h2>
+
+      <!-- قسم الأسئلة المتكررة -->
+      <section class="shell p-faq reveal-on-scroll">
         <div>
+          <p class="eyebrow">وضوح من البداية</p>
+          <h2>قبل أول خطوة.</h2>
+        </div>
+        <div class="faq-list">
           <details>
             <summary>تكلفة الموقع بتتحدد إزاي؟<span aria-hidden="true">+</span></summary>
             <p>
@@ -357,9 +552,11 @@
           </details>
         </div>
       </section>
+
+      <!-- قسم التواصل ونموذج واتساب -->
       <section class="p-contact" id="contact">
-        <div class="shell contact-layout">
-          <div>
+        <div class="shell contact-layout reveal-on-scroll">
+          <div class="contact-copy">
             <p class="eyebrow">حضورك الجاي، يبدأ من هنا</p>
             <h2>إيه الحكاية<br />ورا شغلك؟</h2>
             <p>ابعت وصفًا بسيطًا لنشاطك والموقع اللي محتاجه. نبدأ الكلام من حاجة واضحة.</p>
@@ -368,34 +565,45 @@
               href="https://wa.me/201555205993"
               target="_blank"
               rel="noopener noreferrer"
-              ><span>واتساب مباشر</span><bdi>015 5520 5993</bdi
-              ><span aria-hidden="true">↗</span></a
             >
+              <span>واتساب مباشر</span>
+              <bdi>015 5520 5993</bdi>
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
           <form class="request-form" data-kind="website">
-            <label
-              >اسمك أو اسم النشاط<input
+            <label>
+              اسمك أو اسم النشاط
+              <input
                 name="name"
                 required
                 maxlength="100"
                 placeholder="نعرفك بإيه؟"
-                autocomplete="organization" /></label
-            ><label
-              >مجال النشاط<input
+                autocomplete="organization"
+              />
+            </label>
+            <label>
+              مجال النشاط
+              <input
                 name="field"
                 required
                 maxlength="160"
-                placeholder="شركة تشطيبات، عيادة، خدمات…" /></label
-            ><label
-              >محتاج الموقع يعمل إيه؟<textarea
+                placeholder="شركة تشطيبات، عيادة، خدمات…"
+              />
+            </label>
+            <label>
+              محتاج الموقع يعمل إيه؟
+              <textarea
                 name="details"
                 required
                 maxlength="2000"
                 rows="3"
                 placeholder="احكي عن الفكرة والمحتوى اللي عندك"
-              ></textarea></label
-            ><button type="submit" class="btn blue">
-              جهّز رسالتك على واتساب <span aria-hidden="true">↗</span>
+              ></textarea>
+            </label>
+            <button type="submit" class="btn blue magnetic-btn" data-magnetic>
+              <span>جهّز رسالتك على واتساب</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
             </button>
             <p class="form-note">
               تراجع الرسالة وتضغط إرسال بنفسك داخل واتساب. بياناتك لا تُحفظ في الموقع.
@@ -405,11 +613,16 @@
         </div>
       </section>
     </main>
+
     <footer class="p-footer shell">
-      <a class="p-logo" href="./index.html"
-        ><span class="logo-shape" aria-hidden="true"></span>واجهة</a
-      ><span>تصميم يبدأ بفهم شغلك.</span><a href="#top" data-top>لأول الصفحة ↑</a>
+      <a class="p-logo" href="./index.html">
+        <span class="logo-shape" aria-hidden="true"></span>
+        <span>واجهة</span>
+      </a>
+      <span>تصميم يبدأ بفهم شغلك.</span>
+      <a href="#top" data-top>لأول الصفحة ↑</a>
     </footer>
+
     <script src="./script.js" defer></script>
   </body>
 </html>
